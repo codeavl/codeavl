@@ -9,7 +9,7 @@ import { Task } from '../models/task';
   providedIn: 'root'
 })
 export class TaskService {
-  private readonly apiUrl: string = 'https://localhost:3080';
+  private readonly apiUrl: string = 'https://67b5a67a07ba6e59083dd3b7.mockapi.io/api';
   private readonly http = inject(HttpClient);
 
   getTasks(): Observable<Task[]> {
@@ -28,7 +28,7 @@ export class TaskService {
     return this.http.put<Task>(`${this.apiUrl}/tasks/${id}`, task);
   }
 
-  deleteTask(id: number): Observable<void> {
+  deleteTask(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/tasks/${id}`);
   }
 }

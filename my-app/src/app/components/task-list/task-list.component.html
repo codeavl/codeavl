@@ -1,0 +1,22 @@
+<div class="task-list">
+    <h2>Tasks</h2>
+    
+    @if (error) {
+      <p class="error">{{ error }}</p>
+    }
+  
+    @if (loading) {
+      <p>Loading tasks...</p>
+    }
+  
+    @for (task of tasks; track task.id) {
+      <div class="task-item">
+        <h3>{{ task.title }}</h3>
+        <p>{{ task.description }}</p>
+        <p>Status: {{ task.status }}</p>
+        <button (click)="deleteTask(task.id)">Delete</button>
+      </div>
+    } @empty {
+      <p>No tasks found</p>
+    }
+</div>
